@@ -54,20 +54,6 @@ public class MainActivity extends AppCompatActivity {
     }
     private void XacNhan()
     {
-        doShowInformation();
+
     }
-
-    private void doShowInformation() {
-
-        String ten=edtTen.getText()+;
-
-        ten=ten.trim();
-            Toast.makeText(MainActivity.this,"", Toast.LENGTH_LONG).show();
-
-            return;
-
-        }
-    }
-
-
 }
