@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    TextView textView, twGioiTinh, textView3;
+
     EditText edtTen, edtNgaySinh, edtSoThich;
     RadioGroup rdgGioiTinh;
     Button btnXacNhan;
@@ -27,10 +27,8 @@ public class MainActivity extends AppCompatActivity {
         addEvents();
     }
 
-    private void addViews() {
-        textView = findViewById(R.id.textView);
-        twGioiTinh = findViewById(R.id.twGioiTinh);
-        textView3 = findViewById(R.id.textView3);
+    private void addViews()
+    {
         edtTen = findViewById(R.id.edtTen);
         edtNgaySinh = findViewById(R.id.edtNgaySinh);
         edtSoThich = findViewById(R.id.edtSoThich);
@@ -54,6 +52,33 @@ public class MainActivity extends AppCompatActivity {
     }
     private void XacNhan()
     {
-
+        StringBuilder result = new StringBuilder();
+        result.append(edtTen.getText().toString());
+        result.append("\nNgày sinh: " + edtNgaySinh.getText().toString());
+        switch (rdgGioiTinh.getCheckedRadioButtonId())
+        {
+            case R.id.rbNam:
+                result.append("\nGiới tính: Nam");
+                break;
+            case R.id.rbNu:
+                result.append("\nGiới tính: Nữ");
+                break;
+        }
+        result.append("\nSở thích: ");
+        if (cbSoThich1.isChecked())
+            result.append(cbSoThich1.getText().toString());
+        if (cbSoThich2.isChecked())
+            result.append("; " + cbSoThich2.getText().toString());
+        if (cbSoThich3.isChecked())
+            result.append("; " + cbSoThich3.getText().toString());
+        if (cbSoThich4.isChecked())
+            result.append("; " + cbSoThich4.getText().toString());
+        if (cbSoThich5.isChecked())
+            result.append("; " + cbSoThich5.getText().toString());
+        if (edtSoThich!=null)
+            result.append("; " + edtSoThich.getText().toString());
+        Toast.makeText(getApplicationContext(),result,Toast.LENGTH_LONG).show();
     }
+
+
 }
